@@ -63,6 +63,7 @@ body.day-mode {
   border-radius: 15px;
   padding: 40px 30px;
   transition: background 0.3s ease, color 0.3s ease;
+  margin-top: 25px;
 }
 
 body.day-mode .card {
