@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পূর্ব দিগন্তে সূর্য উঠেছে</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Noto+Serif+Display:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="mode-toggle" id="modeToggle" onclick="toggleMode()">
+    <i class="fas fa-moon"></i> Night Mode
+</div>
+
+<div class="card" id="card">
+    <h1 class="card-title">পূর্ব দিগন্তে সূর্য উঠেছে</h1>
+      <div class="content">
+        <div class="column">
+          পূর্ব দিগন্তে সূর্য উঠেছে<br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br />
+          জোয়ার এসেছে জন-সমুদ্রে<br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br /><br />
+          বাঁধন ছেঁড়ার হয়েছে কাল<br />
+          হয়েছে কাল, হয়েছে কাল, হয়েছে কাল<br />
+          বাঁধন ছেঁড়ার হয়েছে কাল<br />
+          হয়েছে কাল, হয়েছে কাল, হয়েছে কাল<br />
+          জোয়ার এসেছে জন-সমুদ্রে<br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br /><br />
+          শোষণের দিন শেষ হয়ে আসে<br />
+          অত্যাচারীরা কাঁপে আজ ত্রাসে<br />
+          শোষণের দিন শেষ হয়ে আসে<br />
+          অত্যাচারীরা কাঁপে আজ ত্রাসে<br />
+          রক্তে আগুন প্রতিরোধ গড়ে<br />
+          রক্তে আগুন প্রতিরোধ গড়ে<br />
+          রক্তে আগুন প্রতিরোধ গড়ে<br />
+          রক্তে আগুন প্রতিরোধ গড়ে<br />
+          নয়া বাংলার নয়া সকাল<br /><br />
+        </div>
+        <div class="column">
+          নয়া সকাল, নয়া সকাল<br />
+          পূর্ব দিগন্তে সূর্য উঠেছে<br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br />
+          জোয়ার এসেছে জন-সমুদ্রে<br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br /><br />
+          আর দেরি নয় উড়াও নিশান<br />
+          রক্তে বাজুক প্রলয় বিষাণ<br />
+          আর দেরি নয় উড়াও নিশান<br />
+          রক্তে বাজুক প্রলয় বিষাণ<br />
+          বিদ্যুৎ গতি হউক অভিযান<br />
+          বিদ্যুৎ গতি হউক অভিযান<br />
+          বিদ্যুৎ গতি হউক অভিযান<br />
+          বিদ্যুৎ গতি হউক অভিযান<br />
+          ছিঁড়ে ফেলো সব শত্রু জাল<br />
+          শত্রু জাল, শত্রু জাল<br /><br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br />
+          রক্ত লাল, রক্ত লাল, রক্ত লাল<br />
+        </div>
+      </div>
+      <div class="footer">
+        <p>
+          "পূর্ব দিগন্তে সূর্য উঠেছে" গানটি বাংলাদেশের মুক্তিযুদ্ধের সময় রচিত
+          একটি অনুপ্রেরণাদায়ক দেশাত্মবোধক গান। এর রচয়িতা বিখ্যাত ভারতীয় গীতিকার
+          গোবিন্দ হালদার, যিনি ১৯৭১ সালের মুক্তিযুদ্ধের সময় বাঙালি জাতির
+          সংগ্রামের প্রতি গভীর শ্রদ্ধা জানিয়ে বেশ কয়েকটি গান রচনা করেছেন। তার
+          রচিত গানগুলোর মধ্যে এটি অন্যতম জনপ্রিয় একটি গান। গানটির সুরকার মহান
+          সুরস্রষ্টা সমর দাস।
+        </p>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button onclick="copyLink()">
+        <i class="fas fa-copy"></i> Copy Link
+      </button>
+      <button onclick="printCard()"><i class="fas fa-print"></i> Print</button>
+      <button onclick="downloadImage()">
+        <i class="fas fa-download"></i> Download
+      </button>
+    </div>
+
+    <div class="popup" id="copyPopup">
+      <p>Link Copied:</p>
+      <span id="copiedLink"></span>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </body>
+</html>

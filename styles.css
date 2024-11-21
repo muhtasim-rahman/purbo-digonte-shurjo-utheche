@@ -1,0 +1,274 @@
+/* Color Palette */
+:root {
+  --dark-bg: #111524; /* Dark background */
+  --dark-text: #cfe5ff; /* Light text */
+  --dark-card: #222a49; /* Dark card background */
+  --dark-highlight: #94b4db; /* Light navy blue highlight */
+  --dark-button: #174066; /* Button background */
+
+  --day-bg: #fff; /* Day background */
+  --day-text: #0f2b4d; /* Day text color */
+  --day-card: #eef3f9; /* Light card background */
+  --day-highlight: #2c5d94; /* Day highlight */
+  --day-button: #2c5d94; /* Day button color */
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Noto Serif Display", serif;
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.day-mode {
+  background-color: var(--day-bg);
+  color: var(--day-text);
+}
+
+/* Dark Mode Toggle Button */
+.mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--dark-button);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background-color 0.3s ease;
+}
+
+.mode-toggle:hover {
+  transform: scale(1.1);
+  background-color: var(--dark-highlight);
+}
+
+/* Card Styles */
+.card {
+  max-width: 800px;
+  width: 90%;
+  background: var(--dark-card);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 40px 30px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.day-mode .card {
+  background: var(--day-card);
+  color: var(--day-text);
+}
+
+/* Card Title */
+.card-title {
+  text-align: center;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 36px;
+  color: var(--dark-highlight);
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+body.day-mode .card-title {
+  color: var(--day-highlight);
+}
+
+/* Content Layout */
+.card .content {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  font-size: 20px; /* Larger font size */
+  line-height: 1.8;
+  text-align: justify;
+  padding: 10px;
+}
+
+.column:nth-child(1) {
+  text-align: right; /* Right-align for left text */
+}
+
+.column:nth-child(2) {
+  text-align: left; /* Left-align for right text */
+}
+
+/* Footer Styles */
+.footer {
+  margin-top: 20px;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--dark-text);
+  text-align: justify;
+}
+
+body.day-mode .footer {
+  color: var(--day-text);
+}
+
+/* Button Styles */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.buttons button {
+  background-color: var(--dark-button);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+  background-color: var(--dark-highlight);
+}
+
+/* Popup Styles */
+.popup {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark-card);
+  color: var(--dark-text);
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 2px solid var(--dark-highlight);
+  display: none;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease, fadeOut 0.5s ease 2.5s;
+}
+
+.popup p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.popup span {
+  font-weight: bold;
+  color: var(--dark-highlight);
+}
+
+/* Print Layout */
+@media print {
+  body {
+    background-color: #fff;
+    color: #000;
+    font-family: "Noto Serif Display", serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0; /* Remove any padding that might be causing extra space */
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px;
+    box-shadow: none;
+    margin: 0; /* Remove margin to avoid unnecessary space */
+  }
+
+  .buttons,
+  .mode-toggle {
+    display: none;
+  }
+
+  /* Ensure the card content and footer are properly spaced */
+  .card .content {
+    display: block;
+    gap: 15px; /* Reduced gap between columns */
+  }
+
+  .column {
+    font-size: 18px;
+    padding: 5px;
+    text-align: justify;
+  }
+
+  .footer {
+    font-size: 18px;
+    margin-top: 30px;
+    padding-left: 5mm; /* Added padding to prevent cutting */
+    padding-right: 5mm; /* Added padding to prevent cutting */
+  }
+
+  /* Page margins for A4 print */
+  @page {
+    size: A4;
+    margin: 15mm; /* Reduced top margin */
+  }
+
+  /* Keep the card looking similar to the screen version */
+  .card-title {
+    font-size: 36px;
+    color: #2c5d94;
+  }
+
+  .column {
+    font-size: 18px;
+  }
+
+  .footer {
+    font-style: italic;
+    color: #20456e;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  /* Ensure the layout stays aligned for printing */
+  .column:nth-child(1) {
+    text-align: right;
+  }
+
+  .column:nth-child(2) {
+    text-align: left;
+  }
+
+  .card .content {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
