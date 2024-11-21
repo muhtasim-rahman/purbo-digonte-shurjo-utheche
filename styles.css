@@ -90,6 +90,7 @@ body.day-mode .card-title {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+  justify-content: center; /* Center the content */
 }
 
 .column {
@@ -98,14 +99,15 @@ body.day-mode .card-title {
   line-height: 1.8;
   text-align: justify;
   padding: 10px;
+  max-width: 45%; /* Adjust to make sure the columns don't stretch too much */
 }
 
 .column:nth-child(1) {
-  text-align: right; /* Right-align for left text */
+  text-align: right;
 }
 
 .column:nth-child(2) {
-  text-align: left; /* Left-align for right text */
+  text-align: left;
 }
 
 /* Footer Styles */
@@ -251,6 +253,50 @@ body.day-mode .footer {
   .card .content {
     display: flex;
     gap: 15px;
+  }
+}
+
+/* Responsive Design: Mobile and smaller screens */
+@media (max-width: 700px) {
+  .card {
+    padding: 20px;
+  }
+
+  .column {
+    flex: 1 0 100%; /* Columns stack on top of each other */
+    max-width: 100%;
+    font-size: 18px; /* Slightly smaller text */
+    text-align: center; /* Center-align text */
+  }
+
+  .column:nth-child(1),
+  .column:nth-child(2) {
+    text-align: center; /* Center-align the text for small screens */
+  }
+
+  .buttons button {
+    padding: 10px 20px; /* Smaller button padding */
+    font-size: 14px; /* Smaller font size for buttons */
+  }
+}
+
+/* Responsive Design: For very small screens (mobile phones) */
+@media (max-width: 480px) {
+  .card {
+    padding: 15px;
+  }
+
+  .column {
+    font-size: 16px; /* Even smaller text for very small screens */
+  }
+
+  .buttons {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    gap: 10px;
+  }
+
+  .buttons button {
+    display: block;
   }
 }
 
