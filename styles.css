@@ -221,23 +221,24 @@ body.day-mode .footer {
   /* Page margins for A4 print */
   @page {
     size: A4;
-    margin: 15mm; /* Reduced top margin */
+    margin: 0mm; /* Reduced top margin */
+    margin-top: -20mm;
   }
 
   /* Keep the card looking similar to the screen version */
   .card-title {
-    font-size: 36px;
+    font-size: 40px;
     color: #2c5d94;
   }
 
   .column {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .footer {
     font-style: italic;
     color: #20456e;
-    font-size: 18px;
+    font-size: 22px;
     text-align: justify;
   }
 
