@@ -23,8 +23,8 @@ function downloadImage() {
         useCORS: true
     }).then(canvas => {
         const link = document.createElement('a');
-        link.download = 'card-image.png';
-        link.href = canvas.toDataURL('image/png');
+        link.download = 'পূর্ব দিগন্তে সূর্য উঠেছে - (সংক্ষিপ্ত এবং পরিমার্জিত).jpg';
+        link.href = canvas.toDataURL('image/jpg');
         link.click();
     });
 }
