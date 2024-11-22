@@ -87,19 +87,16 @@ body.day-mode .card-title {
 
 /* Content Layout */
 .card .content {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center; /* Center the content */
 }
 
 .column {
-  flex: 1;
-  font-size: 20px; /* Larger font size */
+  font-size: 20px;
   line-height: 1.8;
   text-align: justify;
   padding: 10px;
-  max-width: 45%; /* Adjust to make sure the columns don't stretch too much */
 }
 
 .column:nth-child(1) {
@@ -245,10 +242,12 @@ body.day-mode .footer {
   /* Ensure the layout stays aligned for printing */
   .column:nth-child(1) {
     text-align: right;
+    width: 40%;
   }
 
   .column:nth-child(2) {
     text-align: left;
+    width: 45%;
   }
 
   .card .content {
@@ -257,47 +256,55 @@ body.day-mode .footer {
   }
 }
 
-/* Responsive Design: Mobile and smaller screens */
+/* Responsive Design: Medium Screens (700px - 1200px) */
+@media (min-width: 700px) and (max-width: 1200px) {
+  .card {
+    padding: 30px;
+  }
+
+  .column {
+    font-size: 18px;
+    padding: 10px;
+  }
+}
+
+/* Responsive Design: Small Screens (max-width: 700px) */
 @media (max-width: 700px) {
   .card {
     padding: 20px;
   }
 
+  .card .content {
+    grid-template-columns: 1fr; /* Single-column layout */
+    gap: 15px;
+  }
+
   .column {
-    flex: 1 0 100%; /* Columns stack on top of each other */
-    max-width: 100%;
-    font-size: 18px; /* Slightly smaller text */
-    text-align: center; /* Center-align text */
-  }
-
-  .column:nth-child(1),
-  .column:nth-child(2) {
-    text-align: center; /* Center-align the text for small screens */
-  }
-
-  .buttons button {
-    padding: 10px 20px; /* Smaller button padding */
-    font-size: 14px; /* Smaller font size for buttons */
+    font-size: 18px;
+    text-align: center;
   }
 }
 
-/* Responsive Design: For very small screens (mobile phones) */
+/* Very Small Screens (max-width: 480px) */
 @media (max-width: 480px) {
   .card {
     padding: 15px;
   }
 
-  .column {
-    font-size: 16px; /* Even smaller text for very small screens */
-  }
-
   .buttons {
-    flex-direction: column; /* Stack buttons vertically on small screens */
+    flex-direction: column;
     gap: 10px;
   }
 
   .buttons button {
     display: block;
+    width: 100%;
+  }
+
+  .popup {
+    max-width: 90%;
+    padding: 10px 15px;
+    font-size: 14px;
   }
 }
 
