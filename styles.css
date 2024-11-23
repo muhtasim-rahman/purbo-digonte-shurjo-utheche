@@ -62,7 +62,7 @@ body.day-mode {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   padding: 40px 30px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: 0.3s ease;
   margin-top: 25px;
 }
 
@@ -85,26 +85,76 @@ body.day-mode .card-title {
   color: var(--day-highlight);
 }
 
-/* Content Layout */
-.card .content {
+/* Content Section */
+.content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  gap: 10px; /* Reduced gap for a tighter layout */
+  padding: 15px;
+  border-radius: 10px;
+}
+
+body.day-mode .content {
+  color: var(--day-text);
 }
 
 .column {
-  font-size: 20px;
-  line-height: 1.8;
-  text-align: justify;
-  padding: 10px;
+  padding: 10px 0;
+  font-size: 18px; /* Adjusted font size */
+  line-height: 1.5; /* Reduced line spacing */
+  text-align: left; /* Default alignment */
 }
 
 .column:nth-child(1) {
   text-align: right;
+  direction: rtl;
 }
 
 .column:nth-child(2) {
   text-align: left;
+}
+
+.column p {
+  margin: 5px 0; /* Tightened spacing between lines */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.column span {
+  min-width: 50px; /* Consistent width for all spans */
+  text-align: center;
+  display: inline-block;
+  padding: 0 5px; /* Padding for better content spacing */
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--dark-highlight);
+}
+
+body.day-mode span {
+  color: var(--day-text);
+}
+
+hr {
+  height: 30px;
+  border-style: solid;
+  margin-left: 25px;
+  margin-right: 50px;
+  border-color: var(--dark-highlight);
+  border-width: 1px 0 0 0; /* Top border */
+  border-radius: 20px;
+}
+hr.hr-1 {
+  margin-top: -12px;
+  border-width: 1px 0 0 0; /* Top border */
+}
+hr.hr-2 {
+  margin-top: -40px;
+  border-width: 0 0 1px 0; /* Bottom border */
+}
+
+body.day-mode hr {
+  color: var(--day-text);
 }
 
 /* Footer Styles */
@@ -172,6 +222,86 @@ body.day-mode .footer {
   color: var(--dark-highlight);
 }
 
+/* Responsive Design Adjustments */
+@media (max-width: 700px) {
+  .content {
+    gap: 10px; /* Smaller gap for mobile screens */
+  }
+
+  .column {
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: center !important; /* Align text to center */
+  }
+
+  .column ul {
+    text-align: left !important;
+    padding-left: 40px;
+    padding-bottom: 5px;
+  }
+
+  .column span {
+    min-width: 40px; /* Smaller span width for smaller screens */
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  hr {
+    margin-right: 25px;
+  }
+
+  .buttons button {
+    display: block;
+    width: 100%;
+  }
+
+  .popup {
+    max-width: 90%;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Very Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .card {
+    padding: 15px;
+  }
+
+  .column {
+    font-size: 15px;
+  }
+
+  .buttons button {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/** ---------------------------------------- **/
 /* Print Layout */
 @media print {
   body {
@@ -253,77 +383,5 @@ body.day-mode .footer {
   .card .content {
     display: flex;
     gap: 15px;
-  }
-}
-
-/* Responsive Design: Medium Screens (700px - 1200px) */
-@media (min-width: 700px) and (max-width: 1200px) {
-  .card {
-    padding: 30px;
-  }
-
-  .column {
-    font-size: 18px;
-    padding: 10px;
-  }
-}
-
-/* Responsive Design: Small Screens (max-width: 700px) */
-@media (max-width: 700px) {
-  .card {
-    padding: 20px;
-  }
-
-  .card .content {
-    grid-template-columns: 1fr; /* Single-column layout */
-    gap: 15px;
-  }
-
-  .column {
-    font-size: 18px;
-    text-align: center;
-  }
-}
-
-/* Very Small Screens (max-width: 480px) */
-@media (max-width: 480px) {
-  .card {
-    padding: 15px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .buttons button {
-    display: block;
-    width: 100%;
-  }
-
-  .popup {
-    max-width: 90%;
-    padding: 10px 15px;
-    font-size: 14px;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
